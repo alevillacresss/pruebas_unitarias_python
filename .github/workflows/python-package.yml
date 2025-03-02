@@ -1,0 +1,31 @@
+name: Python package
+
+on:
+  push:
+    branches:
+      - main  # O la rama que estés utilizando
+  pull_request:
+    branches:
+      - main  # O la rama que estés utilizando
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8  # O la versión que estés utilizando
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt  # Asegúrate de tener un requirements.txt que liste pytest y cualquier otra librería que necesites
+
+    - name: Run tests
+      run: |
+        pytest  # Ejecuta pytest para que corra las pruebas
