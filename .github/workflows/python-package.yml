@@ -3,10 +3,10 @@ name: Python package
 on:
   push:
     branches:
-      - main  # O la rama que estés utilizando
+      - main
   pull_request:
     branches:
-      - main  # O la rama que estés utilizando
+      - main
 
 jobs:
   test:
